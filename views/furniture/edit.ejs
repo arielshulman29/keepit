@@ -1,0 +1,149 @@
+<% layout('layouts/boilerplate') %>
+    <!DOCTYPE html>
+    <html dir="rtl" lang="he-IL">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/edit.css" />
+        <title>edit</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="room d-flex">
+                <span class="room-name ml-auto">
+                    חדר חדש
+                </span>
+                <div class="d-inline-block"><button class="btn toggle-rooms" id="newRoom"><i
+                            class="fa fa-caret-down"></i></button>
+                </div>
+            </div>
+            <div class="room-furniture toggle-target" id="newRoom">
+                <form action="/new/room" method="POST">
+                    <div class="d-inline-block ml-2">
+                        <label for="furniture[translation]" class="form-label">שם חדר בעברית</label>
+                        <input type="text" name="room[translation]" class="form-control form-inline" lang="he" required>
+                    </div>
+                    <div class="d-inline-block">
+                        <label for="furniture[title]" class="form-label">שם חדר באנגלית</label>
+                        <input type="text" name="room[title]" class="form-control form-inline" lang="en" required>
+                    </div>
+                    <div class="d-block mt-2">
+                        <button class="btn" id="createNewRoom">שמור</button>
+                    </div>
+                </form>
+            </div>
+            <div class="room d-flex">
+                <span class="room-name ml-auto">
+                    רהיט חדש
+                </span>
+                <div class="d-inline-block"><button class="btn toggle-rooms" id="newFurniture"><i
+                            class="fa fa-caret-down"></i></button>
+                </div>
+            </div>
+            <div class="room-furniture toggle-target" id="newFurniture">
+                <form action="/new/furniture" method="POST" enctype="multipart/form-data">
+                    <div class="d-block mb-1">
+                        <input type="file" class="form-inline" id="image" aria-describedby="image" aria-label="Upload"
+                            name="image" required>
+                    </div>
+                    <div class="d-inline-block ml-2">
+                        <label for="furniture[translation]" class="form-label">שם בעברית</label>
+                        <input type="text" name="furniture[translation]" class="form-control form-inline" lang="he"
+                            required>
+                    </div>
+                    <div class="d-inline-block ml-2">
+                        <label for="furniture[title]" class="form-label">שם באנגלית</label>
+                        <input type="text" name="furniture[title]" class="form-control form-inline" lang="en" required>
+                    </div>
+                    <div class="d-inline-block ml-2">
+                        <label for="furniture[price]" class="form-label">מחיר</label>
+                        <input type="text" name="furniture[price]" class="form-control form-inline" required>
+                    </div>
+                    <div class="d-inline-block ml-2 mb-1">
+                        <label for="size" class="form-label">נפח</label>
+                        <input type="text" name="furniture[size]" class="form-inline form-control" required>
+                    </div>
+                    <div class="d-inline-block">
+                        <select class="form-select" aria-label="Default select example" name="furniture[room]">
+                            <option selected>בחרו חדר</option>
+                            <% for (let r of rooms) { %>
+                                <option value="<%= r._id %>">
+                                    <%= r.translation %>
+                                </option>
+                                <% } %>
+                        </select>
+                    </div>
+                    <div class="d-block mt-2"><button class="btn" id="createNewFurniture">שמור</button></div>
+                </form>
+            </div>
+            <% for(let room of rooms) { %>
+                <div class="room d-flex">
+                    <span class="room-name ml-auto">
+                        <%= room.translation %>
+                    </span>
+                    <div class="d-inline-block">
+                        <button class="btn toggle-rooms" id="<%= room._id %>">
+                            <i class="fa fa-caret-down"></i></button>
+                    </div>
+                </div>
+                <div class="room-furniture toggle-target" id="<%= room._id %>">
+                    <% for (let furn of room.furniture) { %>
+                        <div class="furniture-single" id="<%=furn._id%>">
+                            <div class="d-flex">
+                                <div class="mr-auto">
+                                    <form action="delete/<%=furn._id%>/<%=room._id%>?_method=DELETE" method="POST">
+                                        <button class="btn delete-button">
+                                            <i class="fa fa-trash"></i>מחק</a></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <form action="/<%= furn._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <div class="d-block ml-auto">
+                                    <img src="<%= furn.thumbnail %>" alt="<%= furn.title %>" class="ml-3">
+                                    <input type="file" class="form-inline" id="image" aria-describedby="image"
+                                        aria-label="Upload" name="image">
+                                </div>
+                                <div class="d-inline-block ml-2">
+                                    <label for="furniture[translation]" class="form-label">שם בעברית</label>
+                                    <input type="text" name="furniture[translation]" class="form-control form-inline"
+                                        value="<%= furn.translation %>" lang="he" required>
+                                </div>
+                                <div class="d-inline-block ml-2">
+                                    <label for="furniture[title]" class="form-label">שם באנגלית</label>
+                                    <input type="text" name="furniture[title]" class="form-control form-inline"
+                                        value="<%= furn.title %>" lang="en" required>
+                                </div>
+                                <div class="d-inline-block ml-2">
+                                    <label for="furniture[price]" class="form-label">מחיר</label>
+                                    <input type="text" name="furniture[price]" class="form-control form-inline"
+                                        value="<%= furn.price %>" required>
+                                </div>
+                                <div class="d-inline-block ml-2">
+                                    <label for="size" class="form-label">נפח</label>
+                                    <input type="text" name="furniture[size]" class="form-inline form-control"
+                                        value="<%= furn.size %>" required>
+                                </div>
+                                <div class="d-inline-block">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <% for (let r of rooms) { %>
+                                            <option <%=r._id===room._id ? 'selected' : '' %> value="<%= r._id %>">
+                                                    <%= r.translation %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+                                </div>
+                                <div class="d-block mt-2"><button type="submit" class="btn"
+                                        id="createFurniture">שמור</button></div>
+                            </form>
+                        </div>
+                        <% } %>
+                </div>
+
+                <% } %>
+        </div>
+        <script src="/js/create.js"></script>
+    </body>
+
+    </html>

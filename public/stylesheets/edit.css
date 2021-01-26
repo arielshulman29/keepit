@@ -1,0 +1,55 @@
+body{
+    font-family: "Open Sans Hebrew", Sans-serif !important;
+    font-weight: 400 !important;
+}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active, 
+.btn-primary:active:focus:not(:disabled):not(.disabled),
+.btn-close:hover,.btn-close:focus,.btn-close:active, 
+.btn-close:active:focus:not(:disabled):not(.disabled),
+.btn:focus, .btn:active, .btn:hover{
+    box-shadow: none!important;
+    outline: 0;
+}
+.room{
+    background-color: gray;
+    border: 2px solid white;
+    color:white;
+    padding: 5px 10px 5px 5px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.toggle-rooms{
+    color:white;
+    font-weight: bold;
+}
+#newRoom.room-furniture, #newFurniture.room-furniture , .furniture-single{
+    border: 2px solid rgb(214, 213, 213);
+    padding:10px;
+    margin:2px 2px 4px 2px !important;
+}
+#createNewRoom,#createNewFurniture,#createFurniture{
+    background-color:#FF001C;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    border-radius: 0;
+    letter-spacing: 1px;
+    border:2px solid white;    
+    text-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 0 1rem rgba(153, 152, 152, 0.3);
+}
+#createNewRoom:hover,#createNewFurniture:hover,#createFurniture:hover{
+    background-color: black;
+}
+.toggle-target{
+    display: none;
+}
+.delete-button{
+    text-decoration: none;
+    letter-spacing: 1px;
+    color:#FF001C;
+}
+.delete-button:hover{
+    color:black;
+}
