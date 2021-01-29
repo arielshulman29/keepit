@@ -1,4 +1,9 @@
-$('a').click(function () {
+$(document).ready(function () {
+    const id = $('.active').attr('id');
+    let filterOtherClass = ':not(#' + id + ')';
+    $('div.furniture').filter(filterOtherClass).css('display', 'none');
+})
+$('a.room').click(function () {
     $('.active').removeClass("active");
     $(this).addClass("active");
     $('div.furniture').show();
@@ -6,11 +11,8 @@ $('a').click(function () {
     var titleSelector = 'a#' + id + ' .title';
     var priceSelector = 'a#' + id + ' input[type=hidden][name=price-per-room]';
     var pricePerRoom = $(priceSelector).val();
-    //don't filter general
-    if (id.match(/^[0-9a-fA-F]{24}$/)) {
-        let filterOtherClass = ':not(#' + id + ')';
-        $('div.furniture').filter(filterOtherClass).css('display', 'none');
-    }
+    let filterOtherClass = ':not(#' + id + ')';
+    $('div.furniture').filter(filterOtherClass).css('display', 'none');
     $('.show-price-per-room').text(pricePerRoom);
     deleteTopBorders();
     $('.room-name').text(function () {
@@ -19,12 +21,10 @@ $('a').click(function () {
     $('input[type=hidden][name=room-id]').val(function () {
         return id;
     })
-    if (id != 'general' && pricePerRoom > 0) {
-        $('span#hideEmptyButton').show();
-    }
-    else{
+    if (pricePerRoom === 0) {
         $('span#hideEmptyButton').hide();
     }
+    toggleMenu();
 });
 $('.add').click(function () {
     let dataDiv = '#' + $(this).parent().attr('id');
@@ -36,21 +36,18 @@ $('.add').click(function () {
     var area = Number($(areaSelector).val());
     var price = Number($(priceSelector).val());
     var roomId = $(roomSelector).val();
-    var currentRoom=$('input[type=hidden][name=room-id]').val();
-    if (currentRoom != 'general') {
-        $('span#hideEmptyButton').show();
-    }
+    $('span#hideEmptyButton').show();
     // add quantity
     $(quantitySelector).val(function () {
         currentQuantity = currentQuantity + 1;
         return currentQuantity
     })
-    let totalAreasQuery = 'a#' + roomId + ' span span.area , a#general span span.area';
+    let totalAreasQuery = 'a#' + roomId + ' span span.area, .sum-area-value';
     let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
     // add area 
     $(totalAreasQuery).text(function () {
         var currentArea = Number($(this).text());
-        currentArea = currentArea + area;
+        currentArea = Number(currentArea + area);
         return currentArea;
     });
     // add price 
@@ -88,12 +85,12 @@ $('.sub').click(function () {
             currentQuantity = currentQuantity - 1;
             return currentQuantity
         })
-        let totalAreasQuery = 'a#' + roomId + ' span span.area , a#general span span.area';
+        let totalAreasQuery = 'a#' + roomId + ' span span.area, .sum-area-value';
         let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
         // subtract area 
         $(totalAreasQuery).text(function () {
-            var currentArea = Number($(this).html());
-            currentArea = currentArea - area;
+            var currentArea = Number($(this).text());
+            currentArea = Number(currentArea - area);
             if (currentArea == 0) {
                 $('span#hideEmptyButton').hide();
             }
@@ -118,7 +115,7 @@ $('.sub').click(function () {
     }
 });
 $('#emptyRoomBtn').click(function () {
-    var sumArea = Number($('a#general span span.area').text());
+    var sumArea = Number($('.sum-area-value').text());
     var roomId = $(this).next().val();
     let roomAreaSelector = 'a#' + roomId + ' span span.area';
     var roomArea = Number($(roomAreaSelector).text());
@@ -134,7 +131,7 @@ $('#emptyRoomBtn').click(function () {
     //initialize room price
     $('.show-price-per-room').text("0");
     //subtract from general area  
-    $('a#general span span.area').text(function () {
+    $('.sum-area-value').text(function () {
         return sumArea - roomArea;
     })
     //initialize room area
@@ -143,9 +140,23 @@ $('#emptyRoomBtn').click(function () {
     $('span#hideEmptyButton').hide();
 })
 
+$('.toggle-rooms-mobile').click(function () {
+    toggleMenu();
+})
+
 $(window).resize(function () {
     deleteTopBorders();
+    toggleMenu();
 });
+
+function toggleMenu() {
+    if ($(window).width() < 768) {
+        $('.toggle-rooms-mobile i').toggleClass('fa-angle-down');
+        $('.toggle-rooms-mobile i').toggleClass('fa-angle-up');
+        $('a.room:not(.active)').toggleClass('d-none');
+        $('a.room:not(.active)').toggleClass('d-block');
+    }
+}
 function deleteTopBorders() {
     initializeBorders();
     if ($(window).width() >= 768) {
@@ -166,10 +177,5 @@ function findFirstVisible(column) {
         if (counter === column) {
             return false;
         }
-    })
-}
-function sumPrice() {
-    $('.container .row .furniture:visible').children().each(function () {
-        console.log($(this));
     })
 }
