@@ -4,8 +4,7 @@ const fs = require("fs");
 
 module.exports.furnitureByCategory = async (req, res, next) => {
     const furniture = await Furniture.find().gt('size', 0).populate('room');
-    const categorieslist = await Room.find();
-    const categories = [{ category: 'general', translation: 'כללי' }, ...categorieslist]
+    const categories = await Room.find();
     res.render('furniture/index', { categories, furniture });
 }
 
