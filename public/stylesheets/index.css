@@ -12,7 +12,7 @@ body{
     outline: 0;
 }
 
-a{
+a.room{
     font-size: 18px;
     color:(187, 183, 183);
     font-weight: 300;
@@ -30,7 +30,7 @@ a{
     padding:0 !important;
     margin-bottom: 5px;
 }
-.total-price-show{
+.total-show{
     border:none !important;
     margin: 10px !important;
     font-weight: bold;
@@ -61,7 +61,7 @@ a{
     text-decoration: none;
 }
 
-a:hover, a.active {
+a.room:hover, a.room.active {
     border: 2px solid#FF001C; 
 }
 #roomNavCard{
@@ -87,12 +87,15 @@ button.calc{
     background-color: rgb(221, 216, 216);
     color:white !important;
     border-radius: 0 !important;
+    padding:0 3px;
+    
 }
 button.calc:hover{
     background-color: #FF001C;
 }
 input.calc{
     color:#9da0a3!important;
+    font-size: 16px;
 }
 
 .furniture-single{
@@ -108,6 +111,24 @@ div.furniture .furniture-single{
 #hideEmptyButton{
     display: none;
 }
+div.scroll-mobile{
+    border:none;
+    padding:0;
+    margin: 0;
+    text-align: center;
+}
+.toggle-rooms-mobile{
+    color:#9da0a3;
+    margin: 0;
+    padding: 5px 0 0 0;
+    display: block;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+}
+.toggle-rooms-mobile:hover{
+    color:black;
+}
 
 @media (min-width: 768px) { 
     .container .row .furniture:nth-child(2) .furniture-single{
@@ -116,4 +137,13 @@ div.furniture .furniture-single{
  .rooms div{
     margin-left: 10px;
 }
+div.scroll-mobile{
+    display: none;
+}
+}
+
+@media (max-width: 768px) { 
+    a.room:not(.active){
+        display: none ;
+    }
 }
