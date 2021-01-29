@@ -17,9 +17,12 @@
         <div class="row">
             <div class="col-sm-12 col-md-3 rooms">
                 <div>
+                    <div class="scroll-mobile">
+                        <a class="toggle-rooms-mobile"><i class="fa fa-angle-down"></i></a>
+                    </div>
                     <% for (let i=0; i < categories.length; i++ ) { %>
-                        <a href="#" class="d-block d-flex text-muted <%= i === 0 ? 'active' : '' %>"
-                            id="<%= categories[i]._id ? categories[i]._id : 'general' %>">
+                        <a href="#" class="room <%= i === 0 ? 'active' : '' %> d-block d-flex text-muted"
+                            id="<%= categories[i]._id%>">
                             <span class="title ml-auto">
                                 <%= categories[i].translation %>
                             </span>
@@ -29,20 +32,24 @@
                             <input type="hidden" name="price-per-room" value="0">
                         </a>
                         <% } %>
-                            <div class="total-price-show">להערכתינו סך שווי הפריטים שלכם בחדר זה הינו:
+                            <div class="total-show">להערכתינו סך שווי הפריטים שלכם בחדר זה הינו:
                                 <span class="show-price-per-room">0</span>
                                 <span>&#8362;</span>
                             </div>
-                            <div class="total-price-show">סה"כ:
+                            <div class="total-show">סך שווי הפריטים בכל החדרים:
                                 <span class="sum-price-value">0</span>
                                 <span>&#8362;</span>
+                            </div>                            
+                            <div class="total-show">תזדקקו ל:
+                                <span class="sum-area-value">0</span>
+                                <span>מ"ק</span>
                             </div>
                 </div>
             </div>
             <div class="col-md-9" id="products">
                 <div class="container">
                     <div class="d-block d-flex align-items-center" id="roomNavCard">
-                        <span class="ml-auto room-name">כללי</span>
+                        <span class="ml-auto room-name"><%= categories[0].translation %></span>
                         <span id="hideEmptyButton">
                             <button class="btn d-inline" id="emptyRoomBtn">
                                 <i class="fa fa-trash"></i> רוקן חדר זה
@@ -66,9 +73,9 @@
 
                                         <div class="col-4">
                                             <div class="d-block" id="<%= furn._id %>">
-                                                <button class="sub btn btn-sm calc">-</button>
+                                                <button class="sub btn btn-sm calc"><i class="fa fa-minus"></i></button>
                                                 <input class="btn btn-sm calc" min="0" value="0" readonly type="button">
-                                                <button class="add btn btn-sm calc">+</button>
+                                                <button class="add btn btn-sm calc"><i class="fa fa-plus"></i></button>
                                                 <input type="hidden" name="price" value="<%= furn.price %>">
                                                 <input type="hidden" name="area" value="<%= furn.size %>">
                                                 <input type="hidden" name="room" value="<%= furn.room._id %>">
