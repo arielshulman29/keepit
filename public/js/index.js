@@ -146,7 +146,6 @@ $('.toggle-rooms-mobile').click(function () {
 
 $(window).resize(function () {
     deleteTopBorders();
-    toggleMenu();
 });
 
 function toggleMenu() {
