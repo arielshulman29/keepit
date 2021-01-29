@@ -21,8 +21,11 @@ $('a.room').click(function () {
     $('input[type=hidden][name=room-id]').val(function () {
         return id;
     })
-    if (pricePerRoom === 0) {
+    if (pricePerRoom == 0) {
         $('span#hideEmptyButton').hide();
+    }
+    else{
+        $('span#hideEmptyButton').show();
     }
     toggleMenu();
 });
@@ -47,13 +50,13 @@ $('.add').click(function () {
     // add area 
     $(totalAreasQuery).text(function () {
         var currentArea = Number($(this).text());
-        currentArea = Number(currentArea + area);
+        currentArea = currentArea + area;
         return currentArea;
     });
     // add price 
     $(totalPriceQuery).val(function () {
         var CurrentPrice = Number($(this).val());
-        CurrentPrice = CurrentPrice + price;
+        CurrentPrice =CurrentPrice + price;
         return CurrentPrice;
     });
     //show added price
@@ -90,7 +93,7 @@ $('.sub').click(function () {
         // subtract area 
         $(totalAreasQuery).text(function () {
             var currentArea = Number($(this).text());
-            currentArea = Number(currentArea - area);
+            currentArea = currentArea - area;
             if (currentArea == 0) {
                 $('span#hideEmptyButton').hide();
             }
