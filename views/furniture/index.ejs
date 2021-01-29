@@ -54,7 +54,7 @@
                             <button class="btn d-inline" id="emptyRoomBtn">
                                 <i class="fa fa-trash"></i> רוקן חדר זה
                             </button>
-                            <input type="hidden" name="room-id" value="general">
+                            <input type="hidden" name="room-id" value="<%= categories[0].translation %>">
                         </span>
                     </div>
                     <div class="all-furniture row">
@@ -71,7 +71,7 @@
                                             </p>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-4 calc-area">
                                             <div class="d-block" id="<%= furn._id %>">
                                                 <button class="sub btn btn-sm calc"><i class="fa fa-minus"></i></button>
                                                 <input class="btn btn-sm calc" min="0" value="0" readonly type="button">
