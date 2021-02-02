@@ -1,0 +1,86 @@
+<% layout('layouts/boilerplate') %>
+    <!DOCTYPE html>
+    <html dir="rtl" lang="he-IL">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/indexmobile.css" />
+        <title>keepit</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="container instructions text-muted">
+                <h3>מחשבון האחסון</h3>
+                1. בחרו חדר <br /> 2. בחרו רהיטים שתבחרו לאחסן<br /> 3. קבלו
+                הערכה של שטח האחסון הנדרש !
+            </div>
+            <div class="all">
+                <div class="container d-column">
+                    <% for (let i=0; i < rooms.length; i++ ) { %>
+                        <a href="#" class="room <%= i===0 ? 'active' : '' %> d-block d-flex text-muted"
+                            id="<%= rooms[i]._id%>">
+                            <span class="title ml-auto">
+                                <%= rooms[i].translation %>
+                            </span>
+                            <span class="d-inline-block">
+                                <span class="area">0</span>
+                                <span class="sqm">מ"ק</span>
+                                <span class="toggle-icon mr-2"><i class="fa fa-plus"></i></span>
+                                <input type="hidden" name="price-per-room" value="0">
+                            </span>
+                        </a>
+                        <div class="products" id="<%= rooms[i]._id %>">
+                            <% for (furniture of rooms[i].furniture) { %>
+                                <div class="furniture-single">
+                                    <div class="row align-items-center">
+                                        <div class="col-4">
+                                            <img src="<%= furniture.thumbnail %>" alt="<%= furniture.title %>">
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="card-title text-muted align-text-bottom">
+                                                <%= furniture.translation %>
+                                            </p>
+                                        </div>
+
+                                        <div class="col-4 calc-area">
+                                            <div class="d-block d-flex" id="<%= furniture._id %>">
+                                                <button class="sub btn btn-sm calc"><i class="fa fa-minus"></i></button>
+                                                <input class="btn btn-sm calc" min="0" value="0" readonly type="button">
+                                                <button class="add btn btn-sm calc"><i class="fa fa-plus"></i></button>
+                                                <input type="hidden" name="price" value="<%= furniture.price %>">
+                                                <input type="hidden" name="area" value="<%= furniture.size %>">
+                                                <input type="hidden" name="room" value="<%= rooms[i]._id %>">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <div class="hide-room" id="<%= rooms[i]._id %>">
+                                        <a href="#" class="hide-room" id="<%= rooms[i]._id %>"><i
+                                                class="fa fa-times"></i>סגור חדר</a>
+                                    </div>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="total-show text-muted mt-3">להערכתינו סך שווי הפריטים שלכם בחדר זה הינו:
+                    <span class="show-price-per-room">0</span>
+                    <span>&#8362;</span>
+                </div>
+                <div class="total-show text-muted">סך שווי הפריטים בכל החדרים:
+                    <span class="sum-price-value">0</span>
+                    <span>&#8362;</span>
+                </div>
+                <div class="total-show text-muted">תזדקקו ל:
+                    <span class="sum-area-value">0</span>
+                    <span>מ"ק</span>
+                </div>
+            </div>
+        </div>
+        <script src="/js/indexmobile.js"></script>
+
+    </body>
+
+    </html>

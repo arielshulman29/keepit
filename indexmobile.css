@@ -1,0 +1,227 @@
+body {
+    font-family: "Open Sans Hebrew", Sans-serif !important;
+    font-weight: 400 !important;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus:not(:disabled):not(.disabled), .btn-close:hover, .btn-close:focus, .btn-close:active, .btn-close:active:focus:not(:disabled):not(.disabled), .btn:focus, .btn:active, .btn:hover {
+    box-shadow: none!important;
+    outline: 0;
+}
+
+i {
+    font-weight: 900;
+}
+
+.container{
+    padding:0;
+}
+h3{
+    color: #FF001C;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+a.room {
+    font-size: 18px;
+    border: 2px solid #f2f2f2;
+    margin: 5px 0 0 0;
+    padding: 0.5em 1em;
+}
+
+.products {
+    padding: 5px;
+}
+
+a.room {
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: (187, 183, 183);
+}
+
+#roomNavCard {
+    background-color: #FF001C;
+    color: white;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+
+.furniture-single {
+    margin: 0;
+    padding: 0;
+}
+
+#roomNavCard button {
+    color: white;
+}
+
+button.calc {
+    background-color: rgb(221, 216, 216);
+    color: white !important;
+    border-radius: 0 !important;
+    padding: 0 0.3em;
+    font-size: 16px;
+}
+
+button.calc:hover {
+    background-color: #FF001C;
+}
+
+input.calc {
+    color: #9da0a3!important;
+    font-size: 16px;
+    padding: 0 0.5em;
+}
+
+.furniture-single {
+    border-top: 2px solid rgb(219, 217, 217);
+    margin: 5px 0 0 0;
+    padding: 5px 0;
+}
+
+div.products div.furniture-single:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top-color: white;
+}
+
+.instructions {
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+a.room.active {
+    border: 2px solid#FF001C;
+}
+
+a.hide-room i {
+    text-decoration: none;
+}
+
+a.hide-room {
+    color: #FF001C;
+    font-weight: 600;
+}
+
+a.hide-room:hover {
+    color: black;
+}
+
+.all {
+    border: 1px solid #f2f2f2;
+    padding: 1em;
+    margin:1em;
+}
+
+.products .col-4{
+    padding:0;
+}
+
+/* 
+.mobile-total {
+    border: 1px solid rgb(226, 226, 226);
+    padding: 0 !important;
+    margin: 5px 0 0 0;
+}
+
+.total-show {
+    border: none !important;
+    margin: 10px !important;
+    font-weight: bold;
+    padding: 5px;
+    color: rgb(63, 63, 63);
+}
+
+.room-name {
+    padding: 6px 12px;
+}
+
+.row .container {
+    padding: 0 !important;
+    border: 1px solid rgb(226, 226, 226);
+}
+
+.container {
+    padding: 0 !important;
+}
+
+#products {
+    padding: 0;
+}
+
+.space {
+    padding: 0;
+    font-size: 15px;
+    color: (187, 183, 183);
+    text-decoration: none;
+}
+
+
+.instructions {
+    background-color: rgb(187, 183, 183);
+    color: white !important;
+    padding: 10px;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.furniture-single {
+    padding: 5px;
+    border-top: 2px solid rgb(219, 217, 217);
+}
+
+
+.container .row .furniture:first-child .furniture-single {
+    border-top-color: white;
+}
+
+#hideEmptyButton {
+    display: none;
+}
+
+div.scroll-mobile {
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.toggle-rooms-mobile {
+    color: #9da0a3;
+    margin: 0;
+    padding: 5px 0 0 0;
+    display: block;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+}
+
+.toggle-rooms-mobile:hover {
+    color: black;
+}
+
+.calc-area {
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .container .row .furniture:nth-child(2) .furniture-single {
+        border-top-color: white;
+    }
+    .rooms div {
+        margin-left: 10px;
+    }
+    div.scroll-mobile {
+        display: none;
+    }
+    .mobile-total {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    a.room:not(.active) {
+        display: none;
+    }
+    .not-mobile-total {
+        display: none;
+    }
+} */
