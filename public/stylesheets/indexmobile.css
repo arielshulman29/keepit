@@ -7,10 +7,6 @@ body {
     outline: 0;
 }
 
-i {
-    font-weight: 900;
-}
-
 .container{
     padding:0;
 }
@@ -100,7 +96,7 @@ a.hide-room {
     font-weight: 600;
 }
 
-a.hide-room:hover {
+a.hide-room:active {
     color: black;
 }
 
@@ -114,114 +110,7 @@ a.hide-room:hover {
     padding:0;
 }
 
-/* 
-.mobile-total {
-    border: 1px solid rgb(226, 226, 226);
-    padding: 0 !important;
-    margin: 5px 0 0 0;
+
+i {
+    font-weight: 900 !important;
 }
-
-.total-show {
-    border: none !important;
-    margin: 10px !important;
-    font-weight: bold;
-    padding: 5px;
-    color: rgb(63, 63, 63);
-}
-
-.room-name {
-    padding: 6px 12px;
-}
-
-.row .container {
-    padding: 0 !important;
-    border: 1px solid rgb(226, 226, 226);
-}
-
-.container {
-    padding: 0 !important;
-}
-
-#products {
-    padding: 0;
-}
-
-.space {
-    padding: 0;
-    font-size: 15px;
-    color: (187, 183, 183);
-    text-decoration: none;
-}
-
-
-.instructions {
-    background-color: rgb(187, 183, 183);
-    color: white !important;
-    padding: 10px;
-    margin: 0 0 5px 0;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.furniture-single {
-    padding: 5px;
-    border-top: 2px solid rgb(219, 217, 217);
-}
-
-
-.container .row .furniture:first-child .furniture-single {
-    border-top-color: white;
-}
-
-#hideEmptyButton {
-    display: none;
-}
-
-div.scroll-mobile {
-    border: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-.toggle-rooms-mobile {
-    color: #9da0a3;
-    margin: 0;
-    padding: 5px 0 0 0;
-    display: block;
-    background-color: white;
-    border: none;
-    font-size: 20px;
-}
-
-.toggle-rooms-mobile:hover {
-    color: black;
-}
-
-.calc-area {
-    padding: 0;
-}
-
-@media (min-width: 768px) {
-    .container .row .furniture:nth-child(2) .furniture-single {
-        border-top-color: white;
-    }
-    .rooms div {
-        margin-left: 10px;
-    }
-    div.scroll-mobile {
-        display: none;
-    }
-    .mobile-total {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    a.room:not(.active) {
-        display: none;
-    }
-    .not-mobile-total {
-        display: none;
-    }
-} */
