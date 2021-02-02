@@ -24,7 +24,7 @@ $('a.room').click(function () {
     if (pricePerRoom == 0) {
         $('span#hideEmptyButton').hide();
     }
-    else{
+    else {
         $('span#hideEmptyButton').show();
     }
     toggleMenu();
@@ -56,7 +56,7 @@ $('.add').click(function () {
     // add price 
     $(totalPriceQuery).val(function () {
         var CurrentPrice = Number($(this).val());
-        CurrentPrice =CurrentPrice + price;
+        CurrentPrice = CurrentPrice + price;
         return CurrentPrice;
     });
     //show added price
@@ -81,7 +81,6 @@ $('.sub').click(function () {
     var area = Number($(areaSelector).val());
     var price = Number($(priceSelector).val());
     var roomId = $(roomSelector).val();
-    console.log(area);
     if (currentQuantity > 0) {
         // subtract quantity
         $(quantitySelector).val(function () {
@@ -128,7 +127,7 @@ $('#emptyRoomBtn').click(function () {
     let quantitySelector = 'div#' + roomId + ' input[type=button]';
     //subtract from total sum price
     $('.sum-price-value').text(function () {
-        return sumPrice - roomPrice;
+        return parseInt(sumPrice - roomPrice);
     })
     $(totalPriceQuery).val(0);
     //initialize room price
