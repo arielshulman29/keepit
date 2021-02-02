@@ -11,7 +11,7 @@
 
     <body>
         <div class="instructions">
-            בחרו חדר <i class="fa fa-caret-left"></i> בחרו רהיטים שתבחרו לאחסן <i class="fa fa-caret-left"></i> קבלו
+            בח1/2ו חדר <i class="fa fa-caret-left"></i> בחרו רהיטים שתבחרו לאחסן <i class="fa fa-caret-left"></i> קבלו
             הערכה של שטח האחסון הנדרש !
         </div>
         <div class="row">
@@ -39,7 +39,7 @@
                             <div class="total-show">סך שווי הפריטים בכל החדרים:
                                 <span class="sum-price-value">0</span>
                                 <span>&#8362;</span>
-                            </div>                            
+                            </div>
                             <div class="total-show">תזדקקו ל:
                                 <span class="sum-area-value">0</span>
                                 <span>מ"ק</span>
@@ -49,12 +49,14 @@
             <div class="col-md-9" id="products">
                 <div class="container">
                     <div class="d-block d-flex align-items-center" id="roomNavCard">
-                        <span class="ml-auto room-name"><%= categories[0].translation %></span>
+                        <span class="ml-auto room-name">
+                            <%= categories[0].translation %>
+                        </span>
                         <span id="hideEmptyButton">
                             <button class="btn d-inline" id="emptyRoomBtn">
                                 <i class="fa fa-trash"></i> רוקן חדר זה
                             </button>
-                            <input type="hidden" name="room-id" value="<%= categories[0].translation %>">
+                            <input type="hidden" name="room-id" value="<%= categories[0]._id %>">
                         </span>
                     </div>
                     <div class="all-furniture row">
