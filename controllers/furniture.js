@@ -14,6 +14,12 @@ module.exports.furnitureByCategoryForEdit = async (req, res, next) => {
 }
 
 
+module.exports.furnitureByCategoryForMobile = async (req, res, next) => {
+    const rooms = await Room.find().populate('furniture');
+    res.render('furniture/indexmobile', { rooms });
+}
+
+
 module.exports.createNewFurniture = async (req, res, next) => {
     const furniture = new Furniture(req.body.furniture);
     furniture.image = req.file.path;
@@ -61,11 +67,6 @@ module.exports.editFurniture = async (req, res, next) => {
     res.redirect('/edit');
 }
 
-module.exports.renderNewForm = async (req, res, next) => {
-    const categorieslist = await Room.find();
-    const categories = [...categorieslist]
-    res.render('furniture/new', { categories });
-}
 
 const deleteImages = async (images) => {
     images.forEach(img => {
