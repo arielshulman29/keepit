@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
-// const { validateCampground, isLoggedIn, isAuthor } = require("../middleware");
+const { isMobile } = require("../middleware");
 const furniture = require("../controllers/furniture");
 const multer = require('multer');
 const sharp = require('sharp');
@@ -23,7 +23,7 @@ const fileFilter = (req, file, cb) => {
     }
 }
 const upload = multer({ storage: storage, fileFilter: fileFilter });
-async function uploadThumbnail (req, res, next) {
+async function uploadThumbnail(req, res, next) {
     try {
         if (req.file) {
             await sharp(req.file.path).resize(50, 50).toFile(req.file.path.replace('uploads/', 'uploads/thumb-'), (err, resizeImage) => {
@@ -40,19 +40,20 @@ async function uploadThumbnail (req, res, next) {
 
 router.route('/:id')
     .put(upload.single('image'), uploadThumbnail, catchAsync(furniture.editFurniture))
-
+//in case of a request from a mobile device will redirect to mobile menu
+//inside the desktop menu there is also reference of "mobile" in case of change of screen size
 router.route('/menu')
-    .get(catchAsync(furniture.furnitureByCategory))
-    
+    .get(isMobile, catchAsync(furniture.furnitureByCategory))
+
+router.route('/mobilemenu')
+    .get(catchAsync(furniture.furnitureByCategoryForMobile))
+
 router.route('/delete/:id/:roomid')
-.delete(catchAsync(furniture.deleteFurniture))
+    .delete(catchAsync(furniture.deleteFurniture))
 
 
 router.route('/deleteroom/:id/:roomid')
-.delete(catchAsync(furniture.deleteFurniture))
-
-router.route('/new')
-    .get(catchAsync(furniture.renderNewForm))
+    .delete(catchAsync(furniture.deleteFurniture))
 
 router.route('/new/furniture')
     .post(upload.single('image'), uploadThumbnail, catchAsync(furniture.createNewFurniture))
