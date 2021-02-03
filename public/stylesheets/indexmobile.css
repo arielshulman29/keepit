@@ -24,7 +24,7 @@ a.room {
 }
 
 .products {
-    padding: 5px;
+    padding: 5px 0;
 }
 
 a.room {
@@ -120,11 +120,22 @@ i {
 }
 
 .card-title{
-    font-size: 1.1em !important;
+    font-size: 18px !important;
 }
 .total-show.price{
     display:none;
 }
 .total-show{
     margin-top: 1em;
+}
+.calc-area{
+    padding-left:0.7em ;
+    font-size: 18px !important;
+}
+img{
+    padding-left: 0.5em;
+}
+
+div.products{
+    display:none;
 }
