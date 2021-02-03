@@ -1,9 +1,10 @@
-$(document).ready(function () {
-    const id = $('.active').attr('id');
-    toggleIcon(id);
-    let filterOtherClass = ':not(#' + id + ')';
-    $('div.products').filter(filterOtherClass).css('display', 'none');
-})
+// $(document).ready(function () {
+//     $('div.products').hide();
+//     // const id = $('.active').attr('id');
+//     // toggleIcon(id);
+//     // let filterOtherClass = ':not(#' + id + ')';
+//     // $('div.products').filter(filterOtherClass).css('display', 'none');
+// })
 $('a.room').click(function () {
     toggleIcon($('.active').attr('id'));
     if ($(this).hasClass('active')) {
