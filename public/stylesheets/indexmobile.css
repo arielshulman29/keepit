@@ -20,7 +20,7 @@ a.room {
     font-size: 18px;
     border: 2px solid #f2f2f2;
     margin: 5px 0 0 0;
-    padding: 0.5em 1em;
+    padding: 0.5em;
 }
 
 .products {
@@ -107,7 +107,7 @@ a.hide-room:active {
 .all {
     border: 1px solid #f2f2f2;
     padding: 1em;
-    margin:1em;
+    margin:0.5em;
 }
 
 .products .col-4{
@@ -129,7 +129,7 @@ i {
     margin-top: 1em;
 }
 .calc-area{
-    padding-left:0.7em ;
+    padding-left:0.2em ;
     font-size: 18px !important;
 }
 img{
