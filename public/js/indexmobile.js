@@ -6,21 +6,27 @@ $(document).ready(function () {
 })
 $('a.room').click(function () {
     toggleIcon($('.active').attr('id'));
-    $('.active').removeClass("active");
-    $(this).addClass("active");
-    $('div.products').show();
-    var id = $(this).attr('id');
-    toggleIcon(id);
-    var priceSelector = 'a#' + id + ' input[type=hidden][name=price-per-room]';
-    var pricePerRoom = $(priceSelector).val();
-    let filterOtherClass = ':not(#' + id + ')';
-    $('div.products').filter(filterOtherClass).css('display', 'none');
-    $('.show-price-per-room').text(pricePerRoom);
-    if (pricePerRoom == 0) {
-        $('div.hide-room' + id).hide();
+    if ($(this).hasClass('active')) {
+        $('div.products').hide();
+        $(this).removeClass("active");
     }
     else {
-        $('div.hide-room' + id).show();
+        $('.active').removeClass("active");
+        $(this).addClass("active");
+        $('div.products').show();
+        var id = $(this).attr('id');
+        toggleIcon(id);
+        var priceSelector = 'a#' + id + ' input[type=hidden][name=price-per-room]';
+        var pricePerRoom = $(priceSelector).val();
+        let filterOtherClass = ':not(#' + id + ')';
+        $('div.products').filter(filterOtherClass).css('display', 'none');
+        $('.show-price-per-room').text(pricePerRoom);
+        if (pricePerRoom == 0) {
+            $('div.hide-room' + id).hide();
+        }
+        else {
+            $('div.hide-room' + id).show();
+        }
     }
 });
 $('.add').click(function () {
@@ -108,10 +114,10 @@ $('.sub').click(function () {
 });
 $('.hide-room').click(function () {
     let id = $(this).attr('id');
-    $('#' + id+'.products').css('display', 'none');
+    $('#' + id + '.products').css('display', 'none');
     $('a#' + id).removeClass('active');
-    $('a#' + id+ ' i').removeClass('fa-minus');
-    $('a#' + id+ ' i').addClass('fa-plus');;
+    $('a#' + id + ' i').removeClass('fa-minus');
+    $('a#' + id + ' i').addClass('fa-plus');;
 });
 // $('a').change(function () {
 //     toggleIcon($(this).attr('id'));
