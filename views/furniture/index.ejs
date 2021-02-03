@@ -11,7 +11,7 @@
 
     <body>
         <div class="instructions">
-            בח1/2ו חדר <i class="fa fa-caret-left"></i> בחרו רהיטים שתבחרו לאחסן <i class="fa fa-caret-left"></i> קבלו
+            בחרו חדר <i class="fa fa-caret-left"></i> בחרו רהיטים שתבחרו לאחסן <i class="fa fa-caret-left"></i> קבלו
             הערכה של שטח האחסון הנדרש !
         </div>
         <div class="row">
@@ -32,18 +32,24 @@
                             <input type="hidden" name="price-per-room" value="0">
                         </a>
                         <% } %>
-                            <div class="total-show">להערכתינו סך שווי הפריטים שלכם בחדר זה הינו:
+                            <div class="total-show price">להערכתינו סך שווי הפריטים שלכם בחדר זה הינו:
                                 <span class="show-price-per-room">0</span>
                                 <span>&#8362;</span>
                             </div>
-                            <div class="total-show">סך שווי הפריטים בכל החדרים:
+                            <div class="total-show price">סך שווי הפריטים בכל החדרים:
                                 <span class="sum-price-value">0</span>
                                 <span>&#8362;</span>
                             </div>
-                            <div class="total-show">תזדקקו ל:
-                                <span class="sum-area-value">0</span>
-                                <span>מ"ק</span>
+                            <div class="total-show d-block d-flex">
+                                <span class="d-inline ml-auto">
+                                    <i class="fa fa-caret-left"></i> סה"כ: 
+                                </span>
+                                <span class="d-inline-block">
+                                    <span class="sum-area-value">0
+                                    </span>
+                                    <span>מ"ק</span></span>
                             </div>
+                            <input type="hidden" name="price-per-room" value="0">
                 </div>
             </div>
             <div class="col-md-9" id="products">
