@@ -19,8 +19,7 @@
             <div class="all">
                 <div class="container d-column">
                     <% for (let i=0; i < rooms.length; i++ ) { %>
-                        <a href="#" class="room d-block d-flex text-muted"
-                            id="<%= rooms[i]._id%>">
+                        <a href="#" class="room d-block d-flex text-muted" id="<%= rooms[i].id%>">
                             <span class="title ml-auto">
                                 <%= rooms[i].translation %>
                             </span>
@@ -31,37 +30,46 @@
                                 <input type="hidden" name="price-per-room" value="0">
                             </span>
                         </a>
-                        <div class="products" id="<%= rooms[i]._id %>">
-                            <% for (furniture of rooms[i].furniture) { %>
-                                <div class="furniture-single">
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-inline-block">
-                                            <img src="<%= furniture.thumbnail %>" alt="<%= furniture.title %>">
-                                        </div>
-                                        <div class="d-inline-block ml-auto">
-                                            <p class="card-title text-muted align-text-bottom">
-                                                <%= furniture.translation %>
-                                            </p>
-                                        </div>
-
-                                        <div class="d-inline-block calc-area d-flex" id="<%= furniture._id %>">
-                                            <!-- <div class="d-flex" > -->
-                                                <button class="sub btn btn-md calc"><i class="fa fa-minus"></i></button>
-                                                <input class="btn btn-md calc" min="0" value="0" readonly type="button">
-                                                <button class="add btn btn-md calc"><i class="fa fa-plus"></i></button>
-                                                <input type="hidden" name="price" value="<%= furniture.price %>">
-                                                <input type="hidden" name="area" value="<%= furniture.size %>">
-                                                <input type="hidden" name="room" value="<%= rooms[i]._id %>">
-                                            <!-- </div> -->
-                                        </div>
-
-                                    </div>
+                        <div class="products" id="<%= rooms[i].id %>">
+                            <% if(rooms[i].id=='myItems' ) { %>
+                                <div class="d-block m-3" id="no-items">
+                                    <p class="text-muted">טרם בחרתם חפצים לאחסון</p>
                                 </div>
                                 <% } %>
-                                    <div class="hide-room d-flex" id="<%= rooms[i]._id %>">
-                                        <a href="#" class="hide-room d-block mr-auto" id="<%= rooms[i]._id %>"><i
-                                                class="fa fa-times"></i>סגור חדר</a>
-                                    </div>
+                                    <% for (furniture of rooms[i].furniture) { %>
+                                        <div
+                                            class="furniture-single <%= furniture.id %> <%= rooms[i].id==='myItems' ? 'd-none ' : '' %>">
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-inline-block">
+                                                    <img src="<%= furniture.thumbnail %>" alt="<%= furniture.title %>">
+                                                </div>
+                                                <div class="d-inline-block ml-auto">
+                                                    <p class="card-title text-muted align-text-bottom">
+                                                        <%= furniture.translation %>
+                                                    </p>
+                                                </div>
+
+                                                <div class="d-inline-block calc-area d-flex" id="<%= furniture._id %>">
+                                                    <!-- <div class="d-flex" > -->
+                                                    <button class="sub btn btn-md calc"><i
+                                                            class="fa fa-minus"></i></button>
+                                                    <input class="btn btn-md calc" min="0" value="0" readonly
+                                                        type="button">
+                                                    <button class="add btn btn-md calc"><i
+                                                            class="fa fa-plus"></i></button>
+                                                    <input type="hidden" name="price" value="<%= furniture.price %>">
+                                                    <input type="hidden" name="area" value="<%= furniture.size %>">
+                                                    <input type="hidden" name="room" value="<%= furniture.room %>">
+                                                    <!-- </div> -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                            <div class="hide-room d-flex" id="<%= rooms[i]._id %>">
+                                                <a href="#" class="hide-room d-block mr-auto"
+                                                    id="<%= rooms[i]._id %>"><i class="fa fa-times"></i>סגור חדר</a>
+                                            </div>
                         </div>
                         <% } %>
                 </div>
@@ -73,9 +81,14 @@
                     <span class="sum-price-value">0</span>
                     <span>&#8362;</span>
                 </div>
-                <div class="total-show text-muted">סה"כ:  
-                    <span class="sum-area-value">0</span>
-                    <span>מ"ק</span>
+                <div class="total-show text-muted d-block d-flex">
+                    <span class="d-inline mx-auto">
+                        <i class="fas fa-box-open"></i>
+                        <span>ארזתם בינתיים </span>
+                        <span id="sum-items">0
+                        </span>
+                        <span>פריטים</span>
+                    </span>
                 </div>
             </div>
         </div>

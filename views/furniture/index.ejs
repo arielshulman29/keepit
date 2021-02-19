@@ -22,7 +22,7 @@
                     </div>
                     <% for (let i=0; i < categories.length; i++ ) { %>
                         <a href="#" class="room <%= i === 0 ? 'active' : '' %> d-block d-flex text-muted"
-                            id="<%= categories[i]._id%>">
+                            id="<%= categories[i].id%>">
                             <span class="title ml-auto">
                                 <%= categories[i].translation %>
                             </span>
@@ -30,6 +30,7 @@
                                 <span class="area">0</span>
                                 <span class="sqm">מ"ק</span></span>
                             <input type="hidden" name="price-per-room" value="0">
+                            <input type="hidden" name="items-in-room" value="0">
                         </a>
                         <% } %>
                             <div class="total-show price">להערכתינו סך שווי הפריטים שלכם בחדר זה הינו:
@@ -40,14 +41,14 @@
                                 <span class="sum-price-value">0</span>
                                 <span>&#8362;</span>
                             </div>
-                            <div class="total-show d-block d-flex">
-                                <span class="d-inline ml-auto">
-                                    <i class="fa fa-caret-left"></i> סה"כ: 
-                                </span>
-                                <span class="d-inline-block">
-                                    <span class="sum-area-value">0
+                            <div class="total-show d-block d-flex text-muted">
+                                <span class="d-inline mx-auto">
+                                    <i class="fas fa-box-open"></i> 
+                                    <span>ארזתם בינתיים </span>
+                                    <span id="sum-items">0
                                     </span>
-                                    <span>מ"ק</span></span>
+                                    <span>פריטים</span>
+                                </span>
                             </div>
                             <input type="hidden" name="price-per-room" value="0">
                 </div>
@@ -65,6 +66,7 @@
                             <input type="hidden" name="room-id" value="<%= categories[0]._id %>">
                         </span>
                     </div>
+                    <div class="no-items d-block m-3 d-none"><p class="text-muted">טרם בחרתם חפצים לאחסון</p></div>
                     <div class="all-furniture row">
                         <% for (let furn of furniture) { %>
                             <div class="furniture col-sm-12 col-md-6" id="<%= furn.room._id %>">
