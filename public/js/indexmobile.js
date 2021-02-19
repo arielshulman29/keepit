@@ -22,173 +22,29 @@ $('a.room').click(function () {
             $('div.hide-room' + id).show();
         }
     }
+    $('.furniture-single:visible').first().css("border-top-color", "white");
 });
+
 $('.add').click(function () {
-    let idSelector = '#' + $(this).parent().attr('id');
-    let quantitySelector = idSelector + ' input[type=button]';
-    let areaSelector = idSelector + ' input[type=hidden][name=area]'
-    let priceSelector = idSelector + ' input[type=hidden][name=price]';
-    let roomSelector = idSelector + ' input[type=hidden][name=room]';
-    var currentQuantity = Number($(quantitySelector).val());
-    var area = Number($(areaSelector).val());
-    var price = Number($(priceSelector).val());
-    var roomId = $(roomSelector).val();
-    // add quantity
-    $(quantitySelector).val(function () {
-        currentQuantity = currentQuantity + 1;
-        return currentQuantity
-    })
-    let totalAreasQuery = 'a#' + roomId + ' span span.area, .sum-area-value';
-    let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
-    // add area 
-    $(totalAreasQuery).text(function () {
-        var currentArea = Number($(this).text());
-        currentArea = currentArea + area;
-        return currentArea;
-    });
-    // add price 
-    $(totalPriceQuery).val(function () {
-        var CurrentPrice = Number($(this).val());
-        CurrentPrice = CurrentPrice + price;
-        return CurrentPrice;
-    });
-    //show added price
-    $('.show-price-per-room').text(function () {
-        return $(totalPriceQuery).val();
-    })
-    // add price to total
-    $('.sum-price-value').text(function () {
-        var CurrentPrice = Number($(this).text());
-        CurrentPrice = CurrentPrice + price;
-        return CurrentPrice;
-    });
+    const furnitureId = $(this).parent().attr('id');
+    addQuantity(furnitureId);
 });
+
 $('.add').dblclick(function () {
-    let idSelector = '#' + $(this).parent().attr('id');
-    let quantitySelector = idSelector + ' input[type=button]';
-    let areaSelector = idSelector + ' input[type=hidden][name=area]'
-    let priceSelector = idSelector + ' input[type=hidden][name=price]';
-    let roomSelector = idSelector + ' input[type=hidden][name=room]';
-    var currentQuantity = Number($(quantitySelector).val());
-    var area = Number($(areaSelector).val());
-    var price = Number($(priceSelector).val());
-    var roomId = $(roomSelector).val();
-    // add quantity
-    $(quantitySelector).val(function () {
-        currentQuantity = currentQuantity + 1;
-        return currentQuantity
-    })
-    let totalAreasQuery = 'a#' + roomId + ' span span.area, .sum-area-value';
-    let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
-    // add area 
-    $(totalAreasQuery).text(function () {
-        var currentArea = Number($(this).text());
-        currentArea = currentArea + area;
-        return currentArea;
-    });
-    // add price 
-    $(totalPriceQuery).val(function () {
-        var CurrentPrice = Number($(this).val());
-        CurrentPrice = CurrentPrice + price;
-        return CurrentPrice;
-    });
-    //show added price
-    $('.show-price-per-room').text(function () {
-        return $(totalPriceQuery).val();
-    })
-    // add price to total
-    $('.sum-price-value').text(function () {
-        var CurrentPrice = Number($(this).text());
-        CurrentPrice = CurrentPrice + price;
-        return CurrentPrice;
-    });
+    const furnitureId = $(this).parent().attr('id');
+    addQuantity(furnitureId);
 });
 
 $('.sub').click(function () {
-    let idSelector = '#' + $(this).parent().attr('id');
-    let quantitySelector = idSelector + ' input[type=button]';
-    let areaSelector = idSelector + ' input[type=hidden][name=area]'
-    let priceSelector = idSelector + ' input[type=hidden][name=price]';
-    let roomSelector = idSelector + ' input[type=hidden][name=room]';
-    var currentQuantity = Number($(quantitySelector).val());
-    var area = Number($(areaSelector).val());
-    var price = Number($(priceSelector).val());
-    var roomId = $(roomSelector).val();
-    if (currentQuantity > 0) {
-        // subtract quantity
-        $(quantitySelector).val(function () {
-            currentQuantity = currentQuantity - 1;
-            return currentQuantity
-        })
-        let totalAreasQuery = 'a#' + roomId + ' span span.area, .sum-area-value';
-        let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
-        // subtract area 
-        $(totalAreasQuery).text(function () {
-            var currentArea = Number($(this).text());
-            currentArea = currentArea - area;
-            return currentArea;
-        });
-        // subtract price 
-        $(totalPriceQuery).val(function () {
-            var CurrentPrice = Number($(this).val());
-            CurrentPrice = CurrentPrice - price;
-            return CurrentPrice;
-        });
-        //show subtracted price
-        $('.show-price-per-room').text(function () {
-            return $(totalPriceQuery).val();
-        })
-        // subtract price from total
-        $('.sum-price-value').text(function () {
-            var CurrentPrice = Number($(this).text());
-            CurrentPrice = CurrentPrice - price;
-            return CurrentPrice;
-        });
-    }
+    const furnitureId = $(this).parent().attr('id');
+    subQuantity(furnitureId);
 });
 
 $('.sub').dblclick(function () {
-    let idSelector = '#' + $(this).parent().attr('id');
-    let quantitySelector = idSelector + ' input[type=button]';
-    let areaSelector = idSelector + ' input[type=hidden][name=area]'
-    let priceSelector = idSelector + ' input[type=hidden][name=price]';
-    let roomSelector = idSelector + ' input[type=hidden][name=room]';
-    var currentQuantity = Number($(quantitySelector).val());
-    var area = Number($(areaSelector).val());
-    var price = Number($(priceSelector).val());
-    var roomId = $(roomSelector).val();
-    if (currentQuantity > 0) {
-        // subtract quantity
-        $(quantitySelector).val(function () {
-            currentQuantity = currentQuantity - 1;
-            return currentQuantity
-        })
-        let totalAreasQuery = 'a#' + roomId + ' span span.area, .sum-area-value';
-        let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
-        // subtract area 
-        $(totalAreasQuery).text(function () {
-            var currentArea = Number($(this).text());
-            currentArea = currentArea - area;
-            return currentArea;
-        });
-        // subtract price 
-        $(totalPriceQuery).val(function () {
-            var CurrentPrice = Number($(this).val());
-            CurrentPrice = CurrentPrice - price;
-            return CurrentPrice;
-        });
-        //show subtracted price
-        $('.show-price-per-room').text(function () {
-            return $(totalPriceQuery).val();
-        })
-        // subtract price from total
-        $('.sum-price-value').text(function () {
-            var CurrentPrice = Number($(this).text());
-            CurrentPrice = CurrentPrice - price;
-            return CurrentPrice;
-        });
-    }
+    const furnitureId = $(this).parent().attr('id');
+    subQuantity(furnitureId);
 });
+
 $('.hide-room').click(function () {
     let id = $(this).attr('id');
     $('#' + id + '.products').css('display', 'none');
@@ -201,6 +57,103 @@ function toggleIcon(id) {
     $(linkSelector).toggleClass('fa-plus');
     $(linkSelector).toggleClass('fa-minus');
 }
-function addClick(){
-    
+function deleteTopBorder() {
+    $('.active').children().first().css('border-top', 'white')
+}
+function addQuantity(id) {
+    let itemNum = Number($('#sum-items').text());
+    $('#sum-items').text(function () { return itemNum + 1 });
+    $('#no-items').addClass('d-none');
+    let roomSelector = '#' + id + ' input[type=hidden][name=room]';
+    roomId = $(roomSelector).val();
+    let idSelector = 'div.products#' + roomId + ' div.furniture-single.' + id;
+    let myItemsSelector = 'div.products#myItems div.furniture-single.' + id;
+    $(myItemsSelector).removeClass('d-none');
+    let quantitySelector = idSelector + ' input[type=button] ,' + myItemsSelector + ' input[type=button]';
+    let areaSelector = idSelector + ' input[type=hidden][name=area]'
+    let priceSelector = idSelector + ' input[type=hidden][name=price]';
+    let currentQuantity = Number($(quantitySelector).val());
+    var area = Number($(areaSelector).val());
+    var price = Number($(priceSelector).val());
+    // add quantity
+    $(quantitySelector).val(function () {
+        return currentQuantity + 1;
+    })
+    let totalAreasQuery = 'a#' + roomId + ' span span.area, a#myItems span span.area';
+    let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
+    // add area 
+    $(totalAreasQuery).text(function () {
+        var currentArea = Number($(this).text());
+        currentArea = currentArea + area;
+        return currentArea;
+    });
+    // add price 
+    $(totalPriceQuery).val(function () {
+        var CurrentPrice = Number($(this).val());
+        CurrentPrice = CurrentPrice + price;
+        return CurrentPrice;
+    });
+    //show added price
+    $('.show-price-per-room').text(function () {
+        return $(totalPriceQuery).val();
+    })
+    // add price to total
+    $('.sum-price-value').text(function () {
+        var CurrentPrice = Number($(this).text());
+        CurrentPrice = CurrentPrice + price;
+        return CurrentPrice;
+    });
+}
+function subQuantity(id) {
+    let itemNum = Number($('#sum-items').text());
+    let roomSelector = '#' + id + ' input[type=hidden][name=room]';
+    roomId = $(roomSelector).val();
+    let idSelector = 'div.products#' + roomId + ' div.furniture-single.' + id;
+    let myItemsSelector = 'div.products#myItems div.furniture-single.' + id;
+    let quantitySelector = idSelector + ' input[type=button] ,' + myItemsSelector + ' input[type=button]';
+    let areaSelector = idSelector + ' input[type=hidden][name=area]'
+    let priceSelector = idSelector + ' input[type=hidden][name=price]';
+    var currentQuantity = Number($(quantitySelector).val());
+    var area = Number($(areaSelector).val());
+    var price = Number($(priceSelector).val());
+    if (currentQuantity > 0) {
+        $('#sum-items').text(function () { 
+            if(itemNum-1===0){
+                $('#no-items').removeClass('d-none');
+            }
+            return itemNum - 1 });
+        // subtract quantity
+        $(quantitySelector).val(function () {
+            if (currentQuantity - 1 == 0) {
+                $(myItemsSelector).addClass('d-none');
+                $('.furniture-single:visible').css("border-top-color", "rgb(219, 217, 217)");
+                $('.furniture-single:visible').first().css("border-top-color", "white");
+            }
+            return currentQuantity - 1;
+        })
+        let totalAreasQuery = 'a#' + roomId + ' span span.area, a#myItems span span.area';
+        let totalPriceQuery = 'a#' + roomId + ' input[type=hidden][name=price-per-room]';
+        // subtract area 
+        $(totalAreasQuery).text(function () {
+            var currentArea = Number($(this).text());
+            currentArea = currentArea - area;
+            return currentArea;
+        });
+        // subtract price 
+        $(totalPriceQuery).val(function () {
+            var CurrentPrice = Number($(this).val());
+            CurrentPrice = CurrentPrice - price;
+            return CurrentPrice;
+        });
+        //show subtracted price
+        $('.show-price-per-room').text(function () {
+            return $(totalPriceQuery).val();
+        })
+        // subtract price from total
+        $('.sum-price-value').text(function () {
+            var CurrentPrice = Number($(this).text());
+            CurrentPrice = CurrentPrice - price;
+            return CurrentPrice;
+        });
+    }
 }
