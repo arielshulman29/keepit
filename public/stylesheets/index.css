@@ -13,14 +13,15 @@ i {
 }
 
 a.room {
-    font-size: 18px;
-    color: (187, 183, 183);
-    font-weight: 300;
+    font-size: 16px;
+    color: rgb(187, 183, 183);
+    font-weight: 300!important;
     text-decoration: none;
     background-color: #f2f2f2;
     margin: 10px;
     border: 2px solid #f2f2f2;
     padding: 5px 5px 5px 5px;
+    letter-spacing: 0.3px;
 }
 
 .rooms {
@@ -47,19 +48,24 @@ a.room {
 
 .total-show {
     border: none !important;
-    margin: 10px !important;
+    margin: 15px 10px 10px 10px !important;
     padding: 5px !important;
     font-weight: 500;
-    font-size: 18px;
-    color: rgb(124, 124, 124);
+    font-size: 16px;
+    
+    /* color: rgb(187, 183, 183); */
+    letter-spacing: 0.5px;
 }
 .total-show.price{
     display: none;
 }
 .total-show i{
-    color: #FF001C;
+    font-size: 24px;
+    /* color: #FF001C !important; */
 }
-
+#sum-items{
+    font-size: 16px;
+}
 .room-name {
     padding: 6px 12px;
 }
