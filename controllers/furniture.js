@@ -4,7 +4,8 @@ const fs = require("fs");
 
 module.exports.furnitureByCategory = async (req, res, next) => {
     const furniture = await Furniture.find().gt('size', 0).populate('room');
-    const categories = await Room.find();
+    const categoriesList = await Room.find();
+    const categories= [...categoriesList,{"id":"myItems","translation":"הפריטים שלי"}];
     res.render('furniture/index', { categories, furniture });
 }
 
@@ -15,7 +16,9 @@ module.exports.furnitureByCategoryForEdit = async (req, res, next) => {
 
 
 module.exports.furnitureByCategoryForMobile = async (req, res, next) => {
-    const rooms = await Room.find().populate('furniture');
+    const furniture= await Furniture.find();
+    const roomsList = await Room.find().populate('furniture');
+    const rooms= [...roomsList,{"id":"myItems","translation":"הפריטים שלי","furniture":[...furniture]}];
     res.render('furniture/indexmobile', { rooms });
 }
 
