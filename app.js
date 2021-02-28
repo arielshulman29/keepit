@@ -14,6 +14,7 @@ const ExpressError = require('./utils/ExpressError');
 const app = express();
 //require routers
 const furnitureRoutes = require ('./routes/furniture');
+const emailRoutes = require ('./routes/email');
 // const passport = require('passport');
 // const localStrategy = require('passport-local');
 // const User = require("./models/user");
@@ -145,14 +146,8 @@ app.use((req, res, next) =>{
 })
 
 //route the code
+app.use('/mail', emailRoutes)
 app.use('/', furnitureRoutes)
-// app.use('/campgrounds', campgroundsRoutes)
-// app.use('/campgrounds/:id/review', reviewsRoutes)
-
-
-// app.get('/menu', (req,res) => {
-//     res.render('index')
-// })
 
 app.all('*',(req, res, next) => {
     next(new ExpressError('Page Not Found',404));
