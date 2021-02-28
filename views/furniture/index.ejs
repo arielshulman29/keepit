@@ -28,7 +28,7 @@
                             </span>
                             <span class="d-inline-block">
                                 <span class="area">0</span>
-                                <span class="sqm">מ"ק</span></span>
+                                <span class="sqm">קוב</span></span>
                             <input type="hidden" name="price-per-room" value="0">
                             <input type="hidden" name="items-in-room" value="0">
                         </a>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="total-show d-block d-flex text-muted">
                                 <span class="d-inline mx-auto">
-                                    <i class="fas fa-box-open"></i> 
+                                    <i class="fas fa-box-open"></i>
                                     <span>ארזתם בינתיים </span>
                                     <span id="sum-items">0
                                     </span>
@@ -66,7 +66,9 @@
                             <input type="hidden" name="room-id" value="<%= categories[0]._id %>">
                         </span>
                     </div>
-                    <div class="no-items d-block m-3 d-none"><p class="text-muted">טרם בחרתם חפצים לאחסון</p></div>
+                    <div class="no-items d-block m-3 d-none">
+                        <p class="text-muted">טרם בחרתם חפצים לאחסון</p>
+                    </div>
                     <div class="all-furniture row">
                         <% for (let furn of furniture) { %>
                             <div class="furniture col-sm-12 col-md-6" id="<%= furn.room._id %>">
@@ -98,8 +100,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-9 mr-md-auto col-sm-12 mt-sm-3 mt-xs-3 p-0 mb-3" id="contactForm">
+                <form action="/mail" method="POST" name="contactmail" class="form-inline p-1">
+                    <div class="row">
+                        <div class="col-md-3 mt-3 col-sm-12">
+                            <input type="text" class="form-control form-inline" name="name" id="name" placeholder="שם*" required>
+                        </div>
+                        <div class="col-md-3 mt-3 col-sm-12">
+                            <input type="text" class="form-control form-inline" name="city" id="city" placeholder="עיר*" required>
+                        </div>
+                        <div class="col-md-3 mt-3 col-sm-12">
+                            <input type="tel" class="form-control form-inline" name="tel" id="tel" placeholder="טלפון נייד*"
+                                required>
+                        </div>
+                        <input id="sendArea" type="hidden" name="sendArea" value="0" />
+                        <div class="col-sm-12 col-md-3 mt-3 mb-3 d-flex">
+                            <button class="btn d-inline-block mx-auto" id="send" type="submit">לקבלת הצעת מחיר <i class="fas fa-angle-double-left"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         <script src="/js/index.js"></script>
+        <script src="js/form-validation.js"></script>
 
     </body>
 
