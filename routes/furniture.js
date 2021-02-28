@@ -51,7 +51,6 @@ router.route('/mobilemenu')
 router.route('/delete/:id/:roomid')
     .delete(catchAsync(furniture.deleteFurniture))
 
-
 router.route('/deleteroom/:id/:roomid')
     .delete(catchAsync(furniture.deleteFurniture))
 
@@ -63,7 +62,6 @@ router.route('/new/room')
 
 router.route('/edit')
     .get(catchAsync(furniture.furnitureByCategoryForEdit))
-
 
 module.exports = router;
 
