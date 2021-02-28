@@ -21,18 +21,23 @@ a.room {
     border: 2px solid #f2f2f2;
     margin: 5px 0 0 0;
     padding: 0.5em;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: (187, 183, 183);
 }
 
 .products {
     padding: 5px 0;
 }
 
-a.room {
-    text-decoration: none;
-    background-color: #f2f2f2;
-    color: (187, 183, 183);
+a#myItems.room{
+    border: 0.5px solid rgba(151, 150, 150, 0.5);
+    margin-top: 6px; 
 }
 
+a#myItems.active{
+    border: 1px solid #FF001C;
+}
 #roomNavCard {
     background-color: #FF001C;
     color: white;
@@ -56,11 +61,12 @@ button.calc {
     padding: 0 0.3em;
     font-size: 1em;
 }
+
 .col-2{
     padding:0;
 }
 
-button.calc:hover {
+button.calc:active {
     background-color: #FF001C;
 }
 
@@ -75,12 +81,6 @@ input.calc {
     margin: 5px 0 0 0;
     padding: 5px 0;
 }
-
-/* div.products div.furniture-single:first {
-    margin-top: 0;
-    padding-top: 0;
-    border-top-color: white;
-} */
 
 .instructions {
     margin-right: 2rem;
@@ -138,4 +138,68 @@ img{
 
 div.products{
     display:none;
+}
+#call{
+    background-color: #FF001C;
+    color:white;
+    border:none;
+    font-size: 22px;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    padding:0.5em;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(151, 150, 150, 0.5);
+    box-shadow: inset 0 0 5rem rgba(133, 132, 132, 0.5);
+    width:80%;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+#call i{
+    margin-left: 5px;
+}
+
+#open-form{
+    background-color:#464646;
+    color:white;
+    border:none;
+    font-size: 22px;
+    margin-bottom: 0.5em;
+    padding:0.5em;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(151, 150, 150, 0.5);
+    box-shadow: inset 0 0 5rem rgba(133, 132, 132, 0.5);
+    width:80%;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.email-form input{
+    border: none;
+    padding:0.5em 0.5em;
+}
+
+
+footer{
+    background-color:#464646;
+    padding:1em !important;
+
+}
+
+
+#send{
+    background-color: #FF001C;
+    color:white;
+    border:none;
+    font-size: 26px;
+    padding:0.5em;
+    letter-spacing: 0.5px;
+    border: none;
+    box-shadow: inset 0 0 5rem rgba(133, 132, 132, 0.3);
+    width:100%;
+    border-radius: 0;
+    font-weight: 600;
 }

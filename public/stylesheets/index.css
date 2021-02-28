@@ -52,20 +52,23 @@ a.room {
     padding: 5px !important;
     font-weight: 500;
     font-size: 16px;
-    
     /* color: rgb(187, 183, 183); */
     letter-spacing: 0.5px;
 }
-.total-show.price{
+
+.total-show.price {
     display: none;
 }
-.total-show i{
+
+.total-show i {
     font-size: 24px;
     /* color: #FF001C !important; */
 }
-#sum-items{
+
+#sum-items {
     font-size: 16px;
 }
+
 .room-name {
     padding: 6px 12px;
 }
@@ -94,7 +97,11 @@ a.room {
     text-decoration: none;
 }
 
-a.room:hover, a.room.active {
+a#myItems.room {
+    border: 0.5px solid rgba(151, 150, 150, 0.5);
+}
+
+a.room:hover, a.room.active,a#myItems:hover,a#myItems.active {
     border: 2px solid#FF001C;
 }
 
@@ -192,4 +199,30 @@ div.scroll-mobile {
     a.room:not(.active) {
         display: none;
     }
+}
+
+
+#contactForm input {
+    border: 0.5px solid rgba(151, 150, 150, 0.5);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+    padding: 0.5em 0em;
+}
+
+#send {
+    background-color: #FF001C;
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 0.5em;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(151, 150, 150, 0.24);
+    box-shadow: inset 0 0 2rem rgba(133, 132, 132, 0.123);
+    border-radius: 0;
+}
+
+#contactForm {
+    border: 1px solid rgba(151, 150, 150, 0.24);
 }
