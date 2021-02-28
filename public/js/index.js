@@ -74,11 +74,17 @@ $('.add').click(function () {
         currentNum++;
         return currentNum;
     })
+    // add area to email field
+    $('#sendArea').val(function () {
+        var currentArea = Number($(this).val());
+        currentArea = currentArea + area;
+        return Math.round((currentArea + Number.EPSILON) * 100) / 100;
+    });
     // add area 
     $(totalAreasQuery).text(function () {
         var currentArea = Number($(this).text());
         currentArea = currentArea + area;
-        return currentArea;
+        return Math.round((currentArea + Number.EPSILON) * 100) / 100;
     });
     // add price 
     $(totalPriceQuery).val(function () {
@@ -143,6 +149,13 @@ $('.sub').click(function () {
             $(this).parents('div.furniture').removeClass('checked');
             $('span#hideEmptyButton').hide();
         }
+
+        // subtract area from email field
+        $('#sendArea').val(function () {
+            var currentArea = Number($(this).val());
+            currentArea = currentArea - area;
+            return Math.round((currentArea + Number.EPSILON) * 100) / 100;
+        });
         // subtract price 
         $(totalPriceQuery).val(function () {
             var CurrentPrice = Number($(this).val());
@@ -159,10 +172,10 @@ $('.sub').click(function () {
             CurrentPrice = CurrentPrice - price;
             return CurrentPrice;
         });
-        if(emptiedRoom){
+        if (emptiedRoom) {
             $('a.active').click()
         }
-        
+
     }
 });
 $('#emptyRoomBtn').click(function () {
@@ -194,6 +207,11 @@ $('#emptyRoomBtn').click(function () {
         }
         return parseInt(sumPrice - roomPrice);
     })
+
+    
+    // empty area of email field
+    $('#sendArea').val(0);
+    
     //subtract from general area  
     $('a#myItems span span.area').text(function () {
         if (emptyAllRooms) {

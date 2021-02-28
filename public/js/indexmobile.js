@@ -47,11 +47,17 @@ $('.sub').dblclick(function () {
 
 $('.hide-room').click(function () {
     let id = $(this).attr('id');
-    $('#' + id + '.products').css('display', 'none');
+    $('.products:visible').css('display', 'none');
     $('a#' + id).removeClass('active');
     $('a#' + id + ' i').removeClass('fa-minus');
     $('a#' + id + ' i').addClass('fa-plus');;
 });
+
+$('#open-form').click(function(){
+    $('#contactForm').removeClass('d-none');
+    var newPosition=$('#contactForm').offset();
+    $('html, body').stop().animate({ scrollTop: newPosition.top }, 50);
+})
 function toggleIcon(id) {
     let linkSelector = 'a.room#' + id + ' .toggle-icon i';
     $(linkSelector).toggleClass('fa-plus');
@@ -85,7 +91,12 @@ function addQuantity(id) {
     $(totalAreasQuery).text(function () {
         var currentArea = Number($(this).text());
         currentArea = currentArea + area;
-        return currentArea;
+        return Math.round((currentArea + Number.EPSILON) * 100) / 100;
+    });
+    $('#sendArea').val(function () {
+        var currentArea = Number($(this).val());
+        currentArea = currentArea + area;
+        return Math.round((currentArea + Number.EPSILON) * 100) / 100;
     });
     // add price 
     $(totalPriceQuery).val(function () {
@@ -117,11 +128,12 @@ function subQuantity(id) {
     var area = Number($(areaSelector).val());
     var price = Number($(priceSelector).val());
     if (currentQuantity > 0) {
-        $('#sum-items').text(function () { 
-            if(itemNum-1===0){
+        $('#sum-items').text(function () {
+            if (itemNum - 1 === 0) {
                 $('#no-items').removeClass('d-none');
             }
-            return itemNum - 1 });
+            return itemNum - 1
+        });
         // subtract quantity
         $(quantitySelector).val(function () {
             if (currentQuantity - 1 == 0) {
@@ -137,7 +149,13 @@ function subQuantity(id) {
         $(totalAreasQuery).text(function () {
             var currentArea = Number($(this).text());
             currentArea = currentArea - area;
-            return currentArea;
+            return Math.round((currentArea + Number.EPSILON) * 100) / 100;
+        });
+
+        $('#sendArea').val(function () {
+            var currentArea = Number($(this).val());
+            currentArea = currentArea - area;
+            return Math.round((currentArea + Number.EPSILON) * 100) / 100;
         });
         // subtract price 
         $(totalPriceQuery).val(function () {
