@@ -18,6 +18,9 @@ body{
     font-size: 20px;
     letter-spacing: 2px;
     font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.212);
 }
 .toggle-rooms{
     color:white;
@@ -26,18 +29,18 @@ body{
 #newRoom.room-furniture, #newFurniture.room-furniture , .furniture-single{
     border: 2px solid rgb(214, 213, 213);
     padding:10px;
-    margin:2px 2px 4px 2px !important;
+    margin:2px 2px 4px 4px !important;
 }
 #createNewRoom,#createNewFurniture,#createFurniture{
     background-color:#FF001C;
     font-weight: 500;
+    font-size:20px;
     color: rgb(255, 255, 255);
-    padding: 8px 12px;
+    padding: 0.2em 0.5em;;
     border-radius: 0;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     border:2px solid white;    
-    text-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.7);
-    box-shadow: inset 0 0 1rem rgba(153, 152, 152, 0.3);
+    box-shadow: inset 0 0 2rem rgba(133, 132, 132, 0.123);
 }
 #createNewRoom:hover,#createNewFurniture:hover,#createFurniture:hover{
     background-color: black;
