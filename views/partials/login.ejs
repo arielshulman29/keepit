@@ -1,0 +1,10 @@
+<div class="d-flex">
+    <div class="d-block mb-2 mr-auto">
+        <% if(!currentUser) { %> 
+        <a href="/user/login">התחבר</a>
+        <a href="/user/register">הרשם</a>
+        <% } else { %> 
+        <a href="/user/logout">התנתק</a>
+        <% } %> 
+    </div>
+</div>
