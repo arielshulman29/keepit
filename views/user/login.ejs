@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') %>
+    <div class="container d-flex justify-content-center align-items-center mt-5 mb-3">
+        <div class="card shadow col-12 col-md-6">
+            <div class="card-body">
+                <h5 class="card-title">התחברות</h5>
+                <form action="/user/login" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="username">שם משתמש</label>
+                        <input class="form-control" type="text" id="username" name="username" autofocus required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="password">סיסמא</label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-success btn-block">התחברות</button>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <a href="/user/register">להרשמה למערכת</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
