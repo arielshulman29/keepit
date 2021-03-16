@@ -76,9 +76,6 @@ button.calc {
     padding: 0;
 }
 
-button.calc:active,button.calc:focus{
-    background-color: #FF001C;
-}
 
 input.calc {
     color: #9da0a3!important;
@@ -228,5 +225,9 @@ footer {
 }
 
 .changeQuantity{
-    border: 0.5px solid rgb(219, 217, 217);
+    border: 0.5px solid rgb(187, 187, 187);
+}
+
+.changeQuantityClick{
+    background-color: #FF001C!important;
 }
