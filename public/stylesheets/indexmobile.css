@@ -76,7 +76,7 @@ button.calc {
     padding: 0;
 }
 
-button.calc:active {
+button.calc:active,button.calc:focus{
     background-color: #FF001C;
 }
 
@@ -160,7 +160,7 @@ div.products {
     background-color: rgb(255,255,255);
     border: 2px solid rgb(0,0,0);
     color: rgb(0,0,0);
-    font-size:35px;
+    font-size:32px;
     font-weight: 700;
     padding: 0.2em;
 }
@@ -171,7 +171,7 @@ div.products {
 
 #openForm {
     padding: 0.2em 0;
-    font-size:1em;
+    font-size:15px;
     font-weight: 700;
     background-color: #FF001C;
     color: white;
@@ -222,7 +222,7 @@ footer {
     width:100%;
 }
 #totalArea{
-    font-size:2em;
+    font-size:25px;
     font-weight: 700;
     height: 100%;
 }
