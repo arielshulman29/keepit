@@ -2,20 +2,31 @@ body {
     font-family: "Open Sans Hebrew", Sans-serif !important;
     font-weight: 400 !important;
 }
-html, body {width: auto!important; overflow-x: hidden!important} 
+
+html, body {
+    width: auto!important;
+    overflow-x: hidden!important
+}
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus:not(:disabled):not(.disabled), .btn-close:hover, .btn-close:focus, .btn-close:active, .btn-close:active:focus:not(:disabled):not(.disabled), .btn:focus, .btn:active, .btn:hover {
     box-shadow: none!important;
     outline: 0;
 }
 
-.container{
-    padding:0;
+.container {
+    padding: 0;
 }
-h3{
+#content{
+    margin-bottom: 80px;
+}
+
+
+h3 {
     color: #FF001C;
     font-weight: 600;
     letter-spacing: 1px;
 }
+
 a.room {
     font-size: 18px;
     border: 2px solid #f2f2f2;
@@ -30,20 +41,11 @@ a.room {
     padding: 5px 0;
 }
 
-a#myItems.active{
-    border: 1px solid #FF001C;
-}
-
-a#myItems.room{
+a#myItems.room {
     background-color: rgb(151, 150, 150);
     border: 2px solid rgb(151, 150, 150);
+    box-shadow: inset 0 0 1rem rgba(143, 143, 143, 0.123);
     color: white!important;
-    box-shadow: inset 0 0 1rem rgba(143, 143, 143, 0.123);   
-    margin-top: 10px; 
-}
-
-a#myItems.room .title{
-    letter-spacing: 1px;
 }
 
 #roomNavCard {
@@ -70,8 +72,8 @@ button.calc {
     font-size: 1em;
 }
 
-.col-2{
-    padding:0;
+.col-2 {
+    padding: 0;
 }
 
 button.calc:active {
@@ -82,6 +84,7 @@ input.calc {
     color: #9da0a3!important;
     font-size: 1.2em !important;
     padding: 0 0.5em;
+    border-radius: 0!important;
 }
 
 .furniture-single {
@@ -113,101 +116,117 @@ a.hide-room:active {
 }
 
 .all {
-    border: 1px solid #f2f2f2;
+    /* border: 1px solid #f2f2f2; */
     padding: 1em;
-    margin:0.5em;
+    /* margin:0.5em; */
 }
 
-.products .col-4{
-    padding:0;
+.products .col-4 {
+    padding: 0;
 }
-
 
 i {
     font-weight: 900 !important;
 }
 
-.card-title{
+.card-title {
     font-size: 18px !important;
 }
-.total-show.price{
-    display:none;
+
+.total-show.price {
+    display: none;
 }
-.total-show{
+
+.total-show {
     margin-top: 1em;
+    color: rgb(158, 2, 2)!important;
 }
-.calc-area{
-    padding-left:0.2em ;
+
+.calc-area {
+    padding-left: 0.2em;
     font-size: 18px !important;
 }
-img{
+
+img {
     padding-left: 0.5em;
 }
 
-div.products{
-    display:none;
+div.products {
+    display: none;
 }
-#call{
-    background-color: #FF001C;
-    color:white;
-    border:none;
-    font-size: 22px;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    padding:0.5em;
-    text-decoration: none;
-    letter-spacing: 1.5px;
-    border: 1px solid rgba(151, 150, 150, 0.5);
-    box-shadow: inset 0 0 5rem rgba(133, 132, 132, 0.5);
-    width:80%;
-    text-align: center;
-    align-content: center;
-    align-items: center;
+
+#call {
+    border-radius: .25rem;
+    background-color: rgb(255,255,255);
+    border: 2px solid rgb(0,0,0);
+    color: rgb(0,0,0);
+    font-size:35px;
+    font-weight: 700;
+    padding: 0.2em;
 }
-#call i{
+
+#call i {
     margin-left: 5px;
 }
 
-#open-form{
-    background-color:#464646;
-    color:white;
-    border:none;
-    font-size: 22px;
-    margin-bottom: 0.5em;
-    padding:0.5em;
-    text-decoration: none;
-    letter-spacing: 1.5px;
-    border: 1px solid rgba(151, 150, 150, 0.5);
-    box-shadow: inset 0 0 5rem rgba(133, 132, 132, 0.5);
-    width:80%;
-    text-align: center;
-    align-content: center;
-    align-items: center;
-}
-
-.email-form input{
-    border: none;
-    padding:0.5em 0.5em;
-}
-
-
-footer{
-    background-color:#464646;
-    padding:1em !important;
-
-}
-
-
-#send{
+#openForm {
+    padding: 0.2em 0;
+    font-size:1em;
+    font-weight: 700;
     background-color: #FF001C;
-    color:white;
+    color: white;
+}
+
+.email-form input {
+    padding: 0.5em;
     border:none;
+    margin: 0.5em;
+    width:90%;
+}
+
+.contact {
+    background-color: #464646;
+    padding: 1em !important;
+}
+
+#send {
+    background-color: #FF001C;
+    color: white;
+    border: none;
     font-size: 26px;
-    padding:0.5em;
+    padding: 0.5em;
     letter-spacing: 0.5px;
     border: none;
     box-shadow: inset 0 0 5rem rgba(133, 132, 132, 0.3);
-    width:100%;
-    border-radius: 0;
+    border-radius: .25rem;
+    width:70%;
     font-weight: 600;
+}
+footer.row{
+    margin:0!important;
+}
+footer div{
+    padding:0!important;
+    margin:0!important;
+    height:100%;
+}
+footer {
+    bottom:0;
+    background-color: #f2f2f2;
+    position: fixed;
+    align-items: center;
+    text-align: center;
+    font-size:1em;
+    font-weight: 700;
+    padding:0.2em 0;
+    width:100%;
+}
+#totalArea{
+    font-size:2em;
+    font-weight: 700;
+    height: 100%;
+}
+
+.changeQuantity{
+    border: 0.5px solid rgb(219, 217, 217);
 }
