@@ -28,21 +28,29 @@ $('a.room').click(function () {
 $('.add').click(function () {
     const furnitureId = $(this).parent().attr('id');
     addQuantity(furnitureId);
+    $('.changeQuantityClick').removeClass('changeQuantityClick');
+    $(this).addClass('changeQuantityClick');
 });
 
 $('.add').dblclick(function () {
     const furnitureId = $(this).parent().attr('id');
     addQuantity(furnitureId);
+    $('.changeQuantityClick').removeClass('changeQuantityClick');
+    $(this).addClass('changeQuantityClick');
 });
 
 $('.sub').click(function () {
     const furnitureId = $(this).parent().attr('id');
     subQuantity(furnitureId);
+    $('.changeQuantityClick').removeClass('changeQuantityClick');
+    $(this).addClass('changeQuantityClick');
 });
 
 $('.sub').dblclick(function () {
     const furnitureId = $(this).parent().attr('id');
     subQuantity(furnitureId);
+    $('.changeQuantityClick').removeClass('changeQuantityClick');
+    $(this).addClass('changeQuantityClick');
 });
 
 $('.hide-room').click(function () {
@@ -57,6 +65,7 @@ $('#openForm').click(function(){
     $('#contactForm').removeClass('d-none');
     var newPosition=$('#contactForm').offset();
     $('html, body').stop().animate({ scrollTop: newPosition.top }, 50);
+    $('input[type=text][name=name]').focus();
 })
 function toggleIcon(id) {
     let linkSelector = 'a.room#' + id + ' .toggle-icon i';
