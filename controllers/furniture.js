@@ -16,9 +16,9 @@ module.exports.furnitureByCategoryForEdit = async (req, res, next) => {
 
 
 module.exports.furnitureByCategoryForMobile = async (req, res, next) => {
-    const furniture = await Furniture.find();
+    // const furniture = await Furniture.find();
     const roomsList = await Room.find().populate('furniture');
-    const rooms = [...roomsList, { "id": "myItems", "translation": "הפריטים שלי", "furniture": [...furniture] }];
+    const rooms = [...roomsList];
     res.render('furniture/indexmobile', { rooms });
 }
 
