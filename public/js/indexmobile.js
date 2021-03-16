@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    $('a.room').first().click();
+})
 $('a.room').click(function () {
     toggleIcon($('.active').attr('id'));
     if ($(this).hasClass('active')) {
