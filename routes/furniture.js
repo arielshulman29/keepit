@@ -5,7 +5,7 @@ const { isMobile } = require("../middleware");
 const furniture = require("../controllers/furniture");
 //in case of a request from a mobile device will redirect to mobile menu
 //inside the desktop menu there is also reference of "mobile" in case of change of screen size
-router.route('/menu')
+router.route('/')
     .get(isMobile, catchAsync(furniture.furnitureByCategory))
 
 router.route('/mobilemenu')
